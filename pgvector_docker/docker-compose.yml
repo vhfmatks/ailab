@@ -1,0 +1,13 @@
+services:
+  postgres:
+    build: .
+    ports: 
+      - "5432:5432"
+    volumes:
+      - ./pgvector_data:/var/lib/postgresql/data
+      - ./init_pgvector.sql:/docker-entrypoint-initdb.d/init_pgvector.sql
+    environment:
+      - POSTGRES_USER=yhchoi
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=mydb
+      
